@@ -27451,6 +27451,8 @@ module.exports = PageBottom;
 "use strict";
 
 
+var _reactRouterDom = __webpack_require__(95);
+
 var _footer = __webpack_require__(230);
 
 var _footer2 = _interopRequireDefault(_footer);
@@ -27466,12 +27468,11 @@ var Detail = React.createClass({
 	displayName: 'Detail',
 
 	render: function render() {
-		// パスに埋め込まれたパラメータは params から取得できる
 		var jsonData = this.props.jsonData;
 
+		console.log(jsonData);
 		var thumbnail = jsonData._embedded;
-		var title = jsonData.title.rendered;
-		console.log(jsonData.title);
+		var title = jsonData.title;
 		// var post_thumbnail = jsonData[i]._embedded['wp:featuredmedia'] ? jsonData[i]._embedded['wp:featuredmedia'][0].source_url : '';
 		return React.createElement(
 			'div',
@@ -27917,6 +27918,7 @@ var Detail = React.createClass({
 });
 
 module.exports = Detail;
+$(window).on('load', function () {});
 
 /***/ })
 /******/ ]);

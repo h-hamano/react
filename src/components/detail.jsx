@@ -2,16 +2,16 @@
 
 var React = require('react');
 
+import { BrowserRouter, Route, Link, browserHistory } from 'react-router-dom';
 import Footer from './../components/footer.jsx';
  
 //サイトヘッダコンポーネント
 var Detail = React.createClass({
   render: function() {
-  	// パスに埋め込まれたパラメータは params から取得できる
-    const { jsonData } = this.props;
+    const {jsonData} = this.props;
+    console.log(jsonData);
     var thumbnail = jsonData._embedded;
-    var title = jsonData.title.rendered;
-    console.log(jsonData.title);
+    var title = jsonData.title;
     // var post_thumbnail = jsonData[i]._embedded['wp:featuredmedia'] ? jsonData[i]._embedded['wp:featuredmedia'][0].source_url : '';
     return (
     	<div>
@@ -178,5 +178,7 @@ var Detail = React.createClass({
     );
   }
 });
- 
+
 module.exports = Detail;
+$(window).on('load', function() {
+});
