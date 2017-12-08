@@ -9,14 +9,17 @@ import Footer from './../components/footer.jsx';
 var Detail = React.createClass({
   render: function() {
     const {jsonData} = this.props;
-    console.log(jsonData);
-    var thumbnail = jsonData._embedded;
-    var title = jsonData.title;
-    // var post_thumbnail = jsonData[i]._embedded['wp:featuredmedia'] ? jsonData[i]._embedded['wp:featuredmedia'][0].source_url : '';
+  	if ( jsonData != 0) {
+	    var thumbnail = jsonData._embedded;
+	    var title = jsonData.title.rendered;
+	    var content = jsonData.content.rendered;
+	    var post_thumbnail = jsonData._embedded['wp:featuredmedia'] ? jsonData._embedded['wp:featuredmedia'][0].source_url : '';
+	    console.log(jsonData);
+  	}
     return (
     	<div>
 	    	<div className="single-featured-image-header">
-	    		<img width="1280" height="720" src="" className="attachment-twentyseventeen-featured-image size-twentyseventeen-featured-image wp-post-image" alt="" srcset="http://demo1.rmd-demo.com/wp/wp-content/uploads/2017/08/maxresdefault.jpg 1280w, http://demo1.rmd-demo.com/wp/wp-content/uploads/2017/08/maxresdefault-300x169.jpg 300w, http://demo1.rmd-demo.com/wp/wp-content/uploads/2017/08/maxresdefault-768x432.jpg 768w, http://demo1.rmd-demo.com/wp/wp-content/uploads/2017/08/maxresdefault-1024x576.jpg 1024w" sizes="100vw" />
+	    		<img width="1280" height="720" src={post_thumbnail} className="attachment-twentyseventeen-featured-image size-twentyseventeen-featured-image wp-post-image" alt="" srcset="http://demo1.rmd-demo.com/wp/wp-content/uploads/2017/08/maxresdefault.jpg 1280w, http://demo1.rmd-demo.com/wp/wp-content/uploads/2017/08/maxresdefault-300x169.jpg 300w, http://demo1.rmd-demo.com/wp/wp-content/uploads/2017/08/maxresdefault-768x432.jpg 768w, http://demo1.rmd-demo.com/wp/wp-content/uploads/2017/08/maxresdefault-1024x576.jpg 1024w" sizes="100vw" />
 	    	</div>
 	      <div className="site-content-contain">
 					<div id="content" className="site-content">
@@ -46,8 +49,7 @@ var Detail = React.createClass({
 									</div>
 									<h1 className="entry-title">{title}</h1>
 								</header>
-								<div className="entry-content">
-									<p>Ember:&nbsp;https://www.emberjs.com/</p>
+								<div className="entry-content" dangerouslySetInnerHTML={{__html: content}}>
 								</div>
 							</article>
 
@@ -106,7 +108,20 @@ var Detail = React.createClass({
 									</span>
 								</a>
 							</div>
-						</div>
+							<div className="nav-next">
+								<a href="http://demo1.rmd-demo.com/8/" rel="next">
+									<span className="screen-reader-text">次の投稿</span>
+									<span aria-hidden="true" className="nav-subtitle">次</span> 
+									<span className="nav-title">俺はEmber
+										<span className="nav-title-icon-wrapper">
+											<svg className="icon icon-arrow-right" aria-hidden="true" role="img">
+												<use xlinkHref="#icon-arrow-right"></use> 
+											</svg>
+										</span>
+									</span>
+								</a>
+							</div>
+							</div>
 					</nav>
 						</main>
 					</div>

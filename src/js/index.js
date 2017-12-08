@@ -2,6 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Link, browserHistory } from 'react-router-dom';
 
+// import { Router, Route, browserHistory } from 'react-router';
+// import { createStore } from 'redux';
+// import { Provider, connect } from 'react-redux';
+// import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
+
 const url = 'http://demo1.rmd-demo.com/wp-json/wp/v2/posts/';
 
 import Header from './../components/header.jsx';
@@ -10,6 +15,53 @@ import Footer from './../components/footer.jsx';
 import PageBottom from './../components/pagebottom.jsx';
 
 import Detail from './../components/detail.jsx';
+
+
+
+// /* Storeの実装 */
+
+// // 初期state変数（initialState）の作成
+// const initialState = {
+//   value: null,
+// };
+// // createStore（）メソッドを使ってStoreの作成
+// const store = createStore(formReducer, initialState);
+
+
+
+// /* Actionの実装 */
+
+// // Action名の定義
+// const SEND = 'SEND';
+
+// // Action Creator
+// function send(value) {
+//   // Action
+//   return {
+//     type: SEND,
+//     value,
+//   };
+// }
+
+
+
+// // Reducer
+// function formReducer(state, action) {
+//   switch (action.type) {
+//     case SEND:
+//       return Object.assign({}, state, {
+//         value: action.value,
+//       });
+//     default:
+//       return state;
+//   }
+// }
+
+
+
+// const history = syncHistoryWithStore(browserHistory, store);
+
+
 
 //コンポーネントを一つにまとめる
 const Index = React.createClass({
@@ -89,6 +141,13 @@ const Root = () => (
 );
 
 ReactDOM.render(
+  // <Provider store={store}>
+  //   <Router history={history}>
+  //     <Route path="/" component={Index}>
+  //       <Route path="/:id" component={Details}/>
+  //     </Route>
+  //   </Router>
+  // </Provider>,
   <Root />,
   document.getElementById('root')
 );
